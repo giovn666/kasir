@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasir Restoran</title>
+    <style>
+        /* CSS untuk tampilan */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Kasir Restoran</h2>
+        <p>Silakan pilih pesanan Anda:</p>
+        <div id="menu">
+            <input type="checkbox" id="nasiGoreng" name="menu" value="15000">
+            <label for="nasiGoreng">Nasi Goreng - Rp 15,000</label><br>
+
+            <input type="checkbox" id="mieGoreng" name="menu" value="12000">
+            <label for="mieGoreng">Mie Goreng - Rp 12,000</label><br>
+
+            <input type="checkbox" id="ayamGoreng" name="menu" value="20000">
+            <label for="ayamGoreng">Ayam Goreng - Rp 20,000</label><br>
+
+            <input type="checkbox" id="sateAyam" name="menu" value="25000">
+            <label for="sateAyam">Sate Ayam - Rp 25,000</label><br>
+
+            <input type="checkbox" id="esTeh" name="menu" value="5000">
+            <label for="esTeh">Es Teh - Rp 5,000</label><br>
+
+            <input type="checkbox" id="esJeruk" name="menu" value="6000">
+            <label for="esJeruk">Es Jeruk - Rp 6,000</label><br>
+        </div>
+        <button onclick="hitungTotal()">Hitung Total</button>
+        <p id="total"></p>
+    </div>
+
+    <footer>
+        <p>&copy; RonaldoGiovn XI RPL</p>
+    </footer>
+
+    <script>
+        function hitungTotal() {
+            var pesanan = document.querySelectorAll('input[name="menu"]:checked');
+            var total = 0;
+            for (var i = 0; i < pesanan.length; i++) {
+                total += parseInt(pesanan[i].value);
+            }
+            document.getElementById('total').textContent = "Total harga yang harus dibayar: Rp " + total.toLocaleString();
+        }
+    </script>
+</body>
+</html>
